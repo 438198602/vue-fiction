@@ -1,5 +1,5 @@
 import http from "./http";
-
+//轮播
 export const getLunbo = async (data) => {
     let url = '/api/lunbo';
     let result = await http({
@@ -53,7 +53,18 @@ export const getQingFiction = async (data) => {
 
 //小说介绍
 export const getBookInfo = async (data) => {
-    let url = `/api/book/${data.bid}`;
+    let url = `/api/book`;
+    let result = await http({
+        method: 'get',
+        url,
+        params: data
+    })
+    return result;
+}
+
+//小说章节
+export const getBookCatalog = async (data) => {
+    let url = `/api/catalog`;
     let result = await http({
         method: 'get',
         url,
@@ -119,7 +130,67 @@ export const getRank = async (data) => {
 
 //排行榜详情
 export const getRankDetail = async (data) => {
-    let url = `/api/rankDetail`;
+    let url = `/api/rank/detail`;
+    let result = await http({
+        method: 'get',
+        url,
+        params: data
+    })
+    return result;
+}
+//登录
+export const postLogin = async (data) => {
+    let url = '/api/login';
+    let result = await http({
+        method: 'post',
+        url,
+        data
+    })
+    return result;
+}
+//登录
+export const getUserInfo = async (data) => {
+    let url = '/api/getUserInfo';
+    let result = await http({
+        method: 'post',
+        url,
+        data
+    })
+    return result;
+}
+//收藏
+export const postCollect = async (data) => {
+    let url = `/api/collect`;
+    let result = await http({
+        method: 'post',
+        url,
+        data
+    })
+    return result;
+}
+//点赞
+export const postLike = async (data) => {
+    let url = `/api/like`;
+    let result = await http({
+        method: 'post',
+        url,
+        data
+    })
+    return result;
+}
+//收藏
+export const getCollectList = async (data) => {
+    let url = `/api/getCollectList`;
+    let result = await http({
+        method: 'get',
+        url,
+        params: data
+    })
+    return result;
+}
+//点赞
+export const getLikeList = async (data) => {
+    let url = `/api/getLikeList`;
     let result = await http({
         method: 'get',
         url,
